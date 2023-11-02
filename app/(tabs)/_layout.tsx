@@ -1,8 +1,10 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
+import { Pressable, TouchableOpacity, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
+import styles from '../styles/layout.styles';
+
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -21,20 +23,8 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        tabBarStyle: {
-          shadowColor: "#000",
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: 5,
-          borderTopLeftRadius: 5,
-          borderTopRightRadius: 5,
-          borderLeftWidth: 1,
-          borderRightWidth: 1,
-        }
+        tabBarStyle: styles.tabBarContainer,
+
       }}>
       <Tabs.Screen
         name="index"
@@ -60,8 +50,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="add-symptom"
         options={{
-          title: 'New Sympt',
-          tabBarIcon: ({ color }) => <TabBarIcon name="plus-square-o" color={color} />,
+          tabBarButton: () => (<TouchableOpacity style={styles.tabBarButton} onPress={() => { }} >
+            <FontAwesome size={28} name='plus-square-o' />
+          </TouchableOpacity>),
         }}
       />
       <Tabs.Screen
@@ -71,6 +62,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="user-circle-o" color={color} />,
         }}
       />
-    </Tabs>
+    </Tabs >
   );
 }
