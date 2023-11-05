@@ -1,7 +1,5 @@
-import UserInfo from '../screens/UserInfo';
+import UserInfo from '../screens/UserInfo'
 
 export default function UserInfoScreen() {
-  return (
-    <UserInfo />
-  );
+    return <UserInfo />
 }
