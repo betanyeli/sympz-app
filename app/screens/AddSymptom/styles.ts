@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
+        backgroundColor: '#fff',
     },
     title: {
         fontSize: 20,
@@ -11,6 +12,13 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         fontWeight: 'bold',
     },
+    saveButton: {
+        color: 'blue',
+        margin: 16,
+        textAlign: 'center',
+        fontSize: 20,
+    },
+    label: { fontWeight: 'bold', fontSize: 24, marginVertical: 8 },
 })
 
 export default styles

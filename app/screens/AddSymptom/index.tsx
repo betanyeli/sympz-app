@@ -6,10 +6,10 @@ import React, { useState } from 'react'
 import DateTimePicker, {
     DateTimePickerEvent,
 } from '@react-native-community/datetimepicker'
-import { Alert, Button, Platform, } from 'react-native'
+import { Alert, Platform, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native'
 import LottieView from 'lottie-react-native';
 import { useNavigation } from 'expo-router';
-import { Text, View } from '../../../components/Themed'
+import { Text, } from '../../../components/Themed'
 import styles from './styles'
 import TextInput from '../../../components/atoms/TextInput'
 import TextArea from '../../../components/molecules/TextArea'
@@ -49,56 +49,66 @@ export default function AddSymptom() {
     if (error) <LottieView source={lottieFailAnimation} autoPlay
         loop />
     return (
-        <View style={styles.container}>
-            <Text style={{ fontWeight: "bold", fontSize: 24, marginVertical: 8 }}>Symptom Name </Text>
-            <TextInput
-                label="Symptom name"
-                value={symptom}
-                onChangeText={setSymptom}
-            />
-            <Text style={{ fontWeight: "bold", fontSize: 24, marginVertical: 8 }}>Severity </Text>
-            <SeverityRating
-                currentSeverity={severity}
-                onSeverityChanged={setSeverity}
-                maxSeverity={5}
-            />
-            <Text style={{ fontWeight: "bold", fontSize: 24, marginVertical: 8 }}>Description </Text>
-            <TextArea
-                label="Description"
-                onChangeText={setDescription}
-                value={description}
-            />
-
-            <Text style={{ fontWeight: "bold", fontSize: 24, marginVertical: 8 }}>Date</Text>
-            <HomeCard customStyles={{ height: 48, }} onPress={() => setShowDatePicker(!showDatePicker)}>
-                <Text
-                    style={{
-                        fontSize: 16,
-                        lineHeight: 16,
-                        color: '#D38F74',
-                        fontWeight: 'bold',
-                        borderRadius: 16
-                    }}
-                >
-                    {
-                        !showDatePicker
-                            ? 'Select symptom date'
-                            : 'Save selected date'
-                    }
-                </Text>
-            </HomeCard>
-
-            {showDatePicker && (
-                <DateTimePicker
-                    display="spinner"
-                    value={date}
-                    onChange={onChange}
+        <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+            <ScrollView style={styles.container}>
+                <Text style={styles.label}>Symptom Name </Text>
+                <TextInput
+                    label="Symptom name"
+                    value={symptom}
+                    onChangeText={setSymptom}
                 />
-            )}
-            <Text>Selected date: </Text>
-            <Text style={{ fontWeight: "bold", fontSize: 16 }}>{`${date.toISOString().split('T')[0]}`}</Text>
+                <Text style={styles.label}>Severity </Text>
+                <SeverityRating
+                    currentSeverity={severity}
+                    onSeverityChanged={setSeverity}
+                    maxSeverity={5}
+                />
+                <Text style={styles.label}>Description </Text>
+                <TextArea
+                    label="Description"
+                    onChangeText={setDescription}
+                    value={description}
+                />
 
-            <Button title="Save" onPress={handleAddSymptom} />
-        </View>
+                <Text style={styles.label}>Date</Text>
+                <HomeCard customStyles={{ height: 48, }} onPress={() => setShowDatePicker(!showDatePicker)}>
+                    <Text
+                        style={{
+                            fontSize: 16,
+                            lineHeight: 16,
+                            color: '#D38F74',
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        {
+                            !showDatePicker
+                                ? 'Select symptom date'
+                                : 'Save selected date'
+                        }
+                    </Text>
+                </HomeCard>
+
+                {showDatePicker && (
+                    <DateTimePicker
+                        display="spinner"
+                        value={date}
+                        onChange={onChange}
+                    />
+                )}
+                <Text>Selected date: </Text>
+                <Text style={{ fontWeight: "bold", fontSize: 16 }}>{`${date.toISOString().split('T')[0]}`}</Text>
+
+                <TouchableOpacity style={{ marginBottom: 40 }} onPress={handleAddSymptom}>
+                    <Text
+                        style={styles.saveButton}
+                    >
+                        Save
+                    </Text>
+                </TouchableOpacity>
+            </ScrollView>
+        </KeyboardAvoidingView>
     )
 }

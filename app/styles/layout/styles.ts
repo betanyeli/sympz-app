@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
     tabBarContainer: {
         backgroundColor: '#FFF',
         borderRadius: 35,
-        height: 90,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
