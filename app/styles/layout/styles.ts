@@ -2,13 +2,8 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     tabBarContainer: {
-        position: 'absolute',
-        bottom: 25,
-        left: 20,
-        right: 20,
-
-        backgroundColor: '#ffffff',
-        borderRadius: 15,
+        backgroundColor: '#FFF',
+        borderRadius: 35,
         height: 90,
         shadowColor: '#000',
         shadowOffset: {
@@ -27,7 +22,7 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70,
         borderRadius: 35,
-        backgroundColor: 'pink',
+        backgroundColor: '#F9FFD6',
     },
 })
 

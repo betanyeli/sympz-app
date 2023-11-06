@@ -10,12 +10,12 @@ export const charCounterStyle = (charCountColor: string): TextStyle => ({
 
 export default StyleSheet.create({
     container: {
-        height: 200,
+        height: 150,
         backgroundColor: '#fff',
     },
     textInputStyle: {
         margin: 16,
-        height: '90%',
+        height: '30%',
         backgroundColor: 'transparent',
         color: '#131313',
     },
