@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-unstable-nested-components */
 import FontAwesome from '@expo/vector-icons/FontAwesome'
-import { Link, Tabs, useNavigation } from 'expo-router'
-import { Pressable, TouchableOpacity, useColorScheme } from 'react-native'
+import { Tabs, useNavigation } from 'expo-router'
+import { TouchableOpacity, useColorScheme } from 'react-native'
 
 import Colors from '../../constants/Colors'
 import styles from '../styles/layout/styles'
@@ -36,30 +36,12 @@ export default function TabLayout() {
                     tabBarIcon: ({ color }) => (
                         <TabBarIcon name="home" color={color} />
                     ),
-                    headerRight: () => (
-                        <Link href="/modal" asChild>
-                            <Pressable>
-                                {({ pressed }) => (
-                                    <FontAwesome
-                                        name="info-circle"
-                                        size={25}
-                                        color={
-                                            Colors[colorScheme ?? 'light'].text
-                                        }
-                                        style={{
-                                            marginRight: 15,
-                                            opacity: pressed ? 0.5 : 1,
-                                        }}
-                                    />
-                                )}
-                            </Pressable>
-                        </Link>
-                    ),
                 }}
             />
             <Tabs.Screen
                 name="add-symptom"
                 options={{
+                    title: 'Add new symptom',
                     tabBarButton: () => (
                         <TouchableOpacity
                             style={styles.tabBarButton}
@@ -67,7 +49,11 @@ export default function TabLayout() {
                                 navigation.navigate('add-symptom' as never)
                             }
                         >
-                            <FontAwesome size={28} name="plus-square-o" />
+                            <FontAwesome
+                                color="#E2A412"
+                                size={28}
+                                name="plus-square-o"
+                            />
                         </TouchableOpacity>
                     ),
                 }}
