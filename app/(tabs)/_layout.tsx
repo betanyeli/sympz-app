@@ -26,6 +26,7 @@ export default function TabLayout() {
             screenOptions={{
                 tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
                 tabBarStyle: styles.tabBarContainer,
+                tabBarHideOnKeyboard: true,
             }}
         >
             <Tabs.Screen
