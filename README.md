@@ -20,6 +20,13 @@ Use 🦋Sympz🦋 to make symptom tracking effortless and insightful. Whether yo
 | ![Imagen 1](./assets/images/docs/add-di.png) | ![Imagen 2](./assets/images/docs/add-android.png) | ![Imagen 3](./assets/images/docs/add-sd.png) |
 | iOS With DynamicIsland | Android | iOS Small device |
 
+## UI Inspiration
+After benchmarking applications that record symptoms such as Period Calendar, Apple Health, Huawei Health, I decided to make a simple interface, without many tab options, only three highlighting the add symptom button. 
+
+In the home page, I focused on showing the user relevant information such as the number of symptoms saved, statistics and exporting data.
+
+In the Add symptom section, I added several dynamic elements such as severity selector and date selector. In a next iteration, it would be more user friendly if instead of an input to write the symptoms, I could have built predefined symptoms to help the user.
+
 
 ##  🛠Tech stack 🛠
 - React native
@@ -27,19 +34,21 @@ Use 🦋Sympz🦋 to make symptom tracking effortless and insightful. Whether yo
 - TypeScript
 - Async storage
 - DateTimePicker
+
 ## ✨ Features ✨
 
 - Create Symptoms with details like Date, severity, and custom description.
 - Review your Symptoms
 
 
-
-##  🔜 Roadmap
-
+##  🔜 Next steps
+[Trello board](https://trello.com/b/si5Y6VQi/sympz-app)
 - Edit and delete symptoms 
 - Statistics 
 - Login
 - Export data
+- Unit test
+- A11y
 
 
 ## Run Locally
@@ -47,7 +56,7 @@ Use 🦋Sympz🦋 to make symptom tracking effortless and insightful. Whether yo
 Clone the project
 
 ```bash
-  git clone https://github.com/betanyeli/simpli-note.git
+  git clone https://github.com/betanyeli/sympz-app.git
 ```
 
 Go to the project directory
